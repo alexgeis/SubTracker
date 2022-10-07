@@ -1,1 +1,20 @@
-node_modules
+# dependencies
+/node_modules
+# mac nonsense
+.DS_Store/
+# VS code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+# api keys
+.env
+.env.dev
