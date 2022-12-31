@@ -1,5 +1,8 @@
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
+import { expressMiddleware } from "@apollo/server/express4";
+import cors from "cors";
+import { json } from "body-parser";
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
 
@@ -12,7 +15,7 @@ const app = express();
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
-	context: authMiddleware,
+	// context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -31,13 +34,21 @@ if (process.env.NODE_ENV === "production") {
 
 	app.use(express.static(path.join(__dirname, "../client/build/static")));
 	app.get("*", (req, res) => {
-		res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+		res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 	});
 }
 
 const startApolloServer = async (typeDefs, resolvers) => {
 	await server.start();
-	server.applyMiddleware({ app });
+	// server.applyMiddleware({ app }); // depracated from apollo-server-3
+	app.use(
+		"/graphql",
+		cors(),
+		json(),
+		expressMiddleware(server, {
+			context: authMiddleware,
+		})
+	);
 
 	db.once("open", () => {
 		app.listen(PORT, () => {
