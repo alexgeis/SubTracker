@@ -1,11 +1,14 @@
-const { AuthenticationError } = require("@apollo/server");
-const { User, Subscription } = require("../models");
-const { signToken } = require("../utils/auth");
-const bcrypt = require("bcrypt");
+import { GraphQLError } from "graphql";
+
+import { User } from "../models/User.js";
+import { Subscription } from "../models/Subscription.js";
+import { signToken } from "../utils/auth.js";
+import bcrypt from "bcrypt";
+
 // import { resolvers as scalarResolvers } from "graphql-scalars";
 // ScalarName: ScalarNameResolver,
 
-const resolvers = {
+export const resolvers = {
 	Query: {
 		users: async () => {
 			return await User.find().populate("subscriptions");
@@ -30,13 +33,21 @@ const resolvers = {
 			const user = await User.findOne({ username });
 
 			if (!user) {
-				throw new AuthenticationError("No user with this username found!");
+				throw new GraphQLError("No user with this username found!", {
+					extensions: {
+						code: "UNAUTHENTICATED",
+					},
+				});
 			}
 
 			const correctPw = await user.isCorrectPassword(password);
 
 			if (!correctPw) {
-				throw new AuthenticationError("Incorrect password!");
+				throw new GraphQLError("Incorrect password!", {
+					extensions: {
+						code: "UNAUTHENTICATED",
+					},
+				});
 			}
 
 			const token = signToken(user);
@@ -88,7 +99,11 @@ const resolvers = {
 					}
 				).populate("subscriptions");
 			}
-			throw new AuthenticationError("You need to be logged in!");
+			throw new GraphQLError("You need to be logged in!", {
+				extensions: {
+					code: "UNAUTHENTICATED",
+				},
+			});
 		},
 		//UPDATE MUTATIONS - NEED TO ADD TOKENS
 		updateUser: async (parent, { _id, username, password, email }) => {
@@ -130,7 +145,11 @@ const resolvers = {
 			if (context.user) {
 				return User.findOneAndDelete({ _id: context.user._id });
 			}
-			throw new AuthenticationError("You need to be logged in!");
+			throw new GraphQLError("You need to be logged in!", {
+				extensions: {
+					code: "UNAUTHENTICATED",
+				},
+			});
 		},
 		removeSubscription: async (parent, { userId, subscription }, context) => {
 			return User.findOneAndUpdate(
@@ -142,4 +161,4 @@ const resolvers = {
 	},
 };
 
-module.exports = resolvers;
+// module.exports = resolvers;

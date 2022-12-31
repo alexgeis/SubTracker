@@ -1,4 +1,4 @@
-const User = require("./User");
-const Subscription = require("./Subscription");
+import User from "./User";
+import Subscription from "./Subscription";
 
-module.exports = { User, Subscription };
+export { User, Subscription };

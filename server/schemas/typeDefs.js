@@ -1,9 +1,9 @@
-const { ApolloServer, gql } = require("@apollo/server");
-const { GraphQLScalarType, Kind } = require("graphql");
+import { ApolloServer } from "@apollo/server";
+import { GraphQLScalarType, Kind } from "graphql";
 // import { typeDefs as scalarTypeDefs } from "graphql-scalars";
 // code above is to use npm "graphql-scalars" to introduce scalar types that work well with dates: add ...scalarTypeDefs, to the begin of the gql code below
 
-const typeDefs = gql`
+export const typeDefs = `#graphql
 	type User {
 		_id: ID!
 		username: String!
@@ -78,4 +78,4 @@ const typeDefs = gql`
 //   // See definition above
 // });
 
-module.exports = typeDefs;
+// module.exports = typeDefs;
