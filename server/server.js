@@ -1,6 +1,8 @@
 import express from "express";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+import http from "http";
 import cors from "cors";
 import pkg from "body-parser";
 const { json } = pkg;
@@ -17,78 +19,56 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const PORT = process.env.PORT || 3001;
+const GRAPHQL_PORT = 4000;
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(
 	express.static(path.join(__dirname, "..", "client", "build", "static"))
 );
 
+// routes
 app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 
 if (process.env.NODE_ENV === "production") {
-	// app.use(express.static(path.join(__dirname, "../client/build")));
-
-	// app.use(express.static(path.join(__dirname, "../client/build/static")));
 	app.get("*", (req, res) => {
 		res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 	});
 }
 
-const startApolloServer = async () => {
-	const server = new ApolloServer({
-		typeDefs,
-		resolvers,
+// connect to mongo db and spin up express server
+db.once("open", () => {
+	// start express app
+	app.listen(PORT, () => {
+		console.log(`API server running on port ${PORT}!`);
 	});
-	await server.start();
-	// server.applyMiddleware({ app }); // depracated from apollo-server-3
-	app.use(
-		"/graphql",
-		cors(),
-		json(),
-		expressMiddleware(server, {
-			context: authMiddleware,
-		})
-	);
-	console.log("enter");
-	db.once("open", () => console.log("HEYYYYYY"));
-	// db.once("open", () => {
-	// 	app.listen(PORT, () => {
-	// 		console.log(`API server running on port ${PORT}!`);
-	// 		console.log(
-	// 			`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-	// 		);
-	// 	});
-	// });
-	console.log("exit");
-};
-startApolloServer();
+});
 
-// const startApolloServer = async (typeDefs, resolvers) => {
-// 	await server.start();
-// 	// server.applyMiddleware({ app }); // depracated from apollo-server-3
-// 	app.use(
-// 		"/graphql",
-// 		cors(),
-// 		json(),
-// 		expressMiddleware(server, {
-// 			context: authMiddleware,
-// 		})
-// 	);
+// apollo server for graphql
+const httpServer = http.createServer(app);
+const server = new ApolloServer({
+	typeDefs,
+	resolvers,
+	plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+});
 
-// 	db.once("open", () => {
-// 		app.listen(PORT, () => {
-// 			console.log(`API server running on port ${PORT}!`);
-// 			console.log(
-// 				`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-// 			);
-// 		});
-// 	});
-// };
+await server.start();
 
-// startApolloServer(typeDefs, resolvers);
+app.use(
+	"/graphql",
+	cors(),
+	json(),
+	expressMiddleware(server, {
+		context: authMiddleware,
+	})
+);
+
+//start apollo graphql server
+await new Promise((resolve) => {
+	httpServer.listen({ port: GRAPHQL_PORT }, resolve);
+	console.log(`Use GraphQL at http://localhost:${GRAPHQL_PORT}/graphql`);
+});

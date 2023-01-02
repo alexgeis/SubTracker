@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeders/seed.js",
-    "seeds": "node seeders/seed.js"
+    "seed": "node seeders/seed.js"
   },
   "keywords": [],
   "author": "",
