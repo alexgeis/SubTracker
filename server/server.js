@@ -73,3 +73,14 @@ await new Promise((resolve) => {
 	httpServer.listen({ port: GRAPHQL_PORT }, resolve);
 	console.log(`Use GraphQL at http://localhost:${GRAPHQL_PORT}/graphql`);
 });
+
+const functionName = "react-express-ssr";
+const routerBasePath =
+	process.env.NODE_ENV === "dev"
+		? `/${functionName}`
+		: `/.netlify/functions/${functionName}/`;
+app.get(routerBasePath, (req, res) => {
+	res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+});
+// handler export for lambda functions
+exports.handler = serverless(app);
