@@ -1,17 +1,16 @@
-
 export const lightTheme = {
-    body:'linear-gradient(50deg, #D7B377A6 12%, #59C9A5B8 33%, #427AA1A6 55%, #885A5AB0 78%, #2C2C3496 100%)',
-    text: '#363537',
-    toggleBorder: '#FFF',
-    gradient: 'linear-gradient(#39598A, #79D7ED)',
-}
+	body: "linear-gradient(50deg, #D7B377A6 12%, #59C9A5B8 33%, #427AA1A6 55%, #885A5AB0 78%, #2C2C3496 100%); height: 100vh;",
+	text: "#363537",
+	toggleBorder: "#FFF",
+	gradient: "linear-gradient(#39598A, #79D7ED)",
+};
 
 export const darkTheme = {
-    body: 'linear-gradient(328deg, #000000 6%, #67696B 25%, #ADB3B4 47%, #636467 72%, #000000 92%)',
-    text: '#FFFFFF',
-    toggleBorder: '#6B8096',
-    gradient: 'linear-gradient(#091236, #1E215D)',
-}
+	body: "linear-gradient(328deg, #000000 6%, #67696B 25%, #ADB3B4 47%, #636467 72%, #000000 92%); height: 100vh;",
+	text: "#FFFFFF",
+	toggleBorder: "#6B8096",
+	gradient: "linear-gradient(#091236, #1E215D)",
+};
 
 //LIGHT MODE
 
@@ -33,13 +32,12 @@ export const darkTheme = {
     border-radius: 10px;
     } */
 
-    /* Button {
+/* Button {
         background-color: #885A5A !important;
         border: 2px #885A5A !important;
         color: white !important;
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
     } */
-
 
 //DARK MODE
 /* 
