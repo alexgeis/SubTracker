@@ -46,6 +46,6 @@
     "workbox-webpack-plugin": "^6.5.3"
   },
   "engines": {
-    "node": "16.x.x"
+    "node": "18.x.x"
   }
 }
