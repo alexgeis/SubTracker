@@ -4,13 +4,13 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js --ignore client",
+    "start": "node server/server.js",
     "server": "cd server && node server.js --ignore client",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "NODE_ENV=production --omit=dev cd client && npm run build",
+    "build": "--omit=dev cd client && npm run build",
     "webpack-build": "cd client && npm run webpack-build",
     "webpack-build-prod": "cd client && npm run webpack-build-prod"
   },
