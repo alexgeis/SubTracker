@@ -18,5 +18,6 @@
 # api keys
 .env
 .env.dev
+.env.prod
 
 /build
