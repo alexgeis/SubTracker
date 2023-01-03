@@ -55,7 +55,8 @@
     "rules": {
 			"no-unused-vars": "off",
 			"default-case": "off",
-			"jsx-a11y/scope": "off"
+			"jsx-a11y/scope": "off",
+			"no-restricted-globals": "off"
 		}
   },
   "browserslist": {
