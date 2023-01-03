@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "export NODE_ENV=production; cd client && npm run build",
+    "build": "NODE_ENV=production --omit=dev cd client && npm run build",
     "webpack-build": "cd client && npm run webpack-build",
     "webpack-build-prod": "cd client && npm run webpack-build-prod"
   },
