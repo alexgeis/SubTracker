@@ -1,5 +1,5 @@
 import express from "express";
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
@@ -85,8 +85,8 @@ await new Promise((resolve) => {
 // });
 // handler export for lambda functions
 // exports.handler = serverless(app);
-const handler = serverless(app);
-exports.handler = async (event, context) => {
-	const result = await handler(event, context);
-	return result;
-};
+// const handler = serverless(app);
+// exports.handler = async (event, context) => {
+// 	const result = await handler(event, context);
+// 	return result;
+// };
