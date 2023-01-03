@@ -74,7 +74,7 @@ await new Promise((resolve) => {
 	console.log(`Use GraphQL at http://localhost:${GRAPHQL_PORT}/graphql`);
 });
 
-const functionName = "react-express-ssr";
+const functionName = "server";
 const routerBasePath =
 	process.env.NODE_ENV === "dev"
 		? `/${functionName}`
@@ -83,4 +83,9 @@ app.get(routerBasePath, (req, res) => {
 	res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
 // handler export for lambda functions
-exports.handler = serverless(app);
+// exports.handler = serverless(app);
+const handler = serverless(app);
+exports.handler = async (event, context) => {
+	const result = await handler(event, context);
+	return result;
+};
