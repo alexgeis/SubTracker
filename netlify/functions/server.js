@@ -51,8 +51,8 @@ exports.handler = async function (event, context) {
 		console.log(`Use GraphQL at http://localhost:${GRAPHQL_PORT}/graphql`);
 	});
 
-	return new Promise((yay, nay) => {
-		const cb = (err, args) => (err ? nay(err) : yay(args));
-		server.createHandler()(event, context, cb);
-	});
+	// return new Promise((yay, nay) => {
+	// 	const cb = (err, args) => (err ? nay(err) : yay(args));
+	// 	server.createHandler()(event, context, cb);
+	// });
 };
