@@ -68,20 +68,21 @@ app.use(
 	})
 );
 
-//start apollo graphql server
+// start apollo graphql server
 await new Promise((resolve) => {
 	httpServer.listen({ port: GRAPHQL_PORT }, resolve);
 	console.log(`Use GraphQL at http://localhost:${GRAPHQL_PORT}/graphql`);
 });
 
-const functionName = "server";
-const routerBasePath =
-	process.env.NODE_ENV === "dev"
-		? `/${functionName}`
-		: `/.netlify/functions/${functionName}/`;
-app.get(routerBasePath, (req, res) => {
-	res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
+// serverless-http wrapping of app for severless function use
+// const functionName = "server";
+// const routerBasePath =
+// 	process.env.NODE_ENV === "dev"
+// 		? `/${functionName}`
+// 		: `/.netlify/functions/${functionName}/`;
+// app.get(routerBasePath, (req, res) => {
+// 	res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+// });
 // handler export for lambda functions
 // exports.handler = serverless(app);
 const handler = serverless(app);
