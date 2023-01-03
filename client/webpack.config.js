@@ -14,8 +14,9 @@ module.exports = () => {
 		// Output for our bundles
 		output: {
 			filename: "[name].bundle.js",
-			path: path.resolve(__dirname, "./public"),
-			//  path: path.resolve(__dirname, "dist"),
+			// path: path.resolve(__dirname, "./public"),
+			path: path.resolve(__dirname, "build"),
+			clean: true,
 		},
 		plugins: [
 			// Webpack plugin that generates our html file and injects our bundles.
