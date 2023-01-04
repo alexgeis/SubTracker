@@ -3,7 +3,7 @@ import { GraphQLError } from "graphql";
 import { User } from "../models/User.js";
 import { Subscription } from "../models/Subscription.js";
 import { signToken } from "../utils/auth.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 // import { resolvers as scalarResolvers } from "graphql-scalars";
 // ScalarName: ScalarNameResolver,
