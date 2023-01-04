@@ -1,130 +1,278 @@
-# Cache-Bandit
+<div id="top"></div>
 
-<br>
+<!-- PROJECT SHIELDS -->
+<!--
+*** using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Mission Statement
-Track all your subsctiptions in one place with ease with Cache Bandit! 
+<!-- [![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url] -->
 
-<br>
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
----
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/alexgeis/SubTracker">
+    <img src="./client/src/components/Images/logo3.png" alt="Logo" width="100" height="80">
+  </a>
 
-## Description
+<h3 align="center">Cache Bandit</h3>
 
-Cache Bandit is an easy to use application where you can input all the details to any subscription services you are currently subscribed to, and see them all in one place. 
+  <p align="center">
+    Track all your subsctiptions in one place with ease with Cache Bandit! 
+    <br />
+    Cache Bandit is an easy to use application where you can input all the details to any subscription services you are currently subscribed to, and see them all in one place.
+    <br />
+    <a href="https://github.com/alexgeis/SubTracker"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a class="deployed_link" href="https://subtracker.up.railway.app/">View Demo</a>
+    ·
+    <a href="https://github.com/alexgeis/SubTracker/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/alexgeis/SubTracker/issues">Request Feature</a>
+  </p>
+</div>
 
-<br>
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
- ---
+<!-- ABOUT THE PROJECT -->
 
- ## User Story
+## About The Project
 
- <br>
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+<a class="deployed_link" href="https://subtracker.up.railway.app/">
+<p align="center">
+<img id="product-screenshot" src="./client/src/components/Images/Subscription-Tracker-screenshot.png" alt="Cache Bandit Homepage"
+style="display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;"/></p></a>
 
-* WHEN you go to Cache bandit,
-THEN you are presented with a login page with the option to login or sign up. 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* WHEN you click the signup button, then you are redirected to a signup page with fields for username, email, and password. 
+### Built With
 
-* WHEN you click the submit button on the signup page, you are redirected to the login page. 
+- [Webpack](https://webpack.js.org/)
+- [React.js](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [Node.js](https://nodejs.dev/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+<!-- - [MySQL](https://www.mysql.com/)
+- [JQuery](https://jquery.com) -->
 
-* WHEN you enter your username and password and login, then you are redirected to the welcome page. 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* WHEN you are on the welcome page,
-THEN you are presented with a list of your subscriptions that are buttons that will allow you to see the individual subscription details, your displayed username, setting button, toggle theme button, add a subscription button, home button, and logout button. 
+<!-- GETTING STARTED -->
 
-* WHEN you click the settings button,
-THEN you are presented with options to edit your username, email, password, and a button to install the webapp. 
+## Getting Started
 
-* WHEN you click the add a subscription button, 
-THEN you are redirected to the new subscription page.
+Instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-* WHEN you view the new subscription page, 
-THEN you have the ability to enter a new subscription's name, start date, due date, billing cycle, auto-pay, auto-renew, payment method, cost, and description. 
+### Prerequisites
 
-* WHEN you click save in new subscription,
-THEN your new subscription is added to the database. 
+This is an example of how to list things you need to use the software and how to install them.
 
-* WHEN you click an individual subscription button, 
-THEN you are presented with that subscription's name, monthly cost, annual cost, payment type, auto-pay and auto-renew information, and the option to edit or delete the subscription. 
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-* WHEN you click the edit button in new subscription, 
-THEN a modal pops up, that allows you to edit the name, monthly cost, payment type, auto-pay and auto-renew options. 
+<!-- PREREQ EXAMPLE
+Packages used in this project: -->
+<!-- - npm
+- css-loader
+- html-loader
+- html-webpack-plugin
+- style-loader
+- webpack
+- webpack-cli
+- webpack-dev-server
+  ```sh
+  npm install npm@latest css-loader html-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server -g
+  ``` -->
 
-* WHEN you click the delete button in edit subscription, 
-THEN it removes your subscription from the database. 
+### Installation
 
-* WHEN you look at the footer,
-THEN you are presented with a toggle button, home button, and logout button. 
+1. Clone the repo
+   ```sh
+   git clone https://github.com/alexgeis/SubTracker.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. DEVELOPMENT - run "npm start" to spin up the development server
+   ```sh
+   npm start
+   ```
+4. PRODUCTION - run "npm build" to bundle the page per the Webpack settings
+   ```sh
+   npm build
+   ```
 
-* WHEN you click the toggle button,
-THEN the background shifts from light to dark. 
+<!-- API EXAMPLE
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/alexgeis/SubTracker.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = "ENTER YOUR API";
+   ``` -->
 
-* WHEN the background is toggled,
-THEN that choice is saved in local storage, and it will stay the same upon page refresh.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* WHEN the user clicks the logout button,
-THEN they are signed out. 
+<!-- USAGE EXAMPLES -->
 
-* WHEN the user clicks the home button, 
-THEN they are redirected to the welcome page. 
+## Usage
 
-<br>
+Useful examples of how a project can be used. Additional screenshots, code examples, demos, and/or links to more resources.
 
-## Future Development
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-The following features are slated for upcoming development - the actual order of implementation may vary from this list's order.
-If you would like to contribute or have an idea/modification, please contact the contributors of this application.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Better State Management -- 
-Currently page reloads are used to force new database queries. Updating state management to reduce the need for page reloads
+<!-- ROADMAP -->
 
-### Validate against duplicate usernames
+## Roadmap
 
-### Add logic to update due-dates -- 
-Right now, "Due Date" is  a static field, and we'd like for it to update dynamically monthly or annual depending on the style of subscription
+- [ ] Better State Management --
+      Currently page reloads are used to force new database queries. Updating state management to reduce the need for page reloads
+- [ ] Validate against duplicate usernames
+- [ ] Add logic to update due-dates --
+      Right now, "Due Date" is a static field, and we'd like for it to update dynamically monthly or annual depending on the style of subscription
+- [ ] Improved Dark Mode --  
+       Dark mode currently effects some but not all elements
+- [ ] Sort By due Date on Welcome page and Only Show Upcoming Expenses --
+      Hide due dates that are >31 days in future
+- [ ] Budget Tips --
+      Utilize free API service to populate the user dashboard with randomized budgeting/financial advice
 
-### Improved Dark Mode --  
-Dark mode currently effects some but not all elements
+See the [open issues](https://github.com/alexgeis/SubTracker/issues) for a full list of proposed features (and known issues).
 
-### Sort By due Date on Welcome page and Only Show Upcoming Expenses -- 
-Hide due dates that are >31 days in future
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Budget Tips -- 
-Utilize free API service to populate the user dashboard with randomized budgeting/financial advice
+<!-- CONTRIBUTING -->
 
-<br>
+## Contributing
 
----
+Any contributions you make are **greatly appreciated**.
 
-## Screen Shots
+Please try to create bug reports that are:
 
-<br>
+- _Reproducible_. Include steps to reproduce the problem.
+- _Specific_. Include as much detail as possible: which version, what environment, etc.
+- _Unique_. Do not duplicate existing opened issues.
+- _Scoped_ to a Single Bug. One bug per report.
 
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-![Login Page](./client/src/components/Images/LoginPage.png)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-![Home Page](./client/src/components/Images/HomePage.png)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-![Single Sub Page](./client/src/components/Images/SingleSubPage.png)
+<!-- LICENSE -->
 
-![Add Sub Page](./client/src/components/Images/AddNewSub.png)
+## License
 
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- CONTACT -->
 
+## Contact
 
+Alex Geis - siegxela@gmail.com
 
+Project Link: [https://github.com/alexgeis/SubTracker](https://github.com/alexgeis/SubTracker)
 
-Links: 
-* [Deployed Live](https://cache-bandit.herokuapp.com) 
-* [Github](https://github.com/alexgeis/Subscription-Tracker)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- ACKNOWLEDGMENTS -->
 
+## Acknowledgments
 
 Contributors:
-* Tracye Wilhelm - [Github](https://github.com/tracyewilhelm)
-* Austin Andrews - [Github](https://github.com/Capricious150)
-* Maria Paterno - [Github](https://github.com/Paterma)
-* Alex Geis - [Github](https://github.com/alexgeis) 
-* Max Gorodesky - [Github](https://github.com/jmg5369)
+
+- Tracye Wilhelm - [Github](https://github.com/tracyewilhelm)
+- Austin Andrews - [Github](https://github.com/Capricious150)
+- Maria Paterno - [Github](https://github.com/Paterma)
+- Max Gorodesky - [Github](https://github.com/jmg5369)
+- Alex Geis - [Github](https://github.com/alexgeis)
+
+Helpful resources and kudos.
+
+- [Choose an Open Source License](https://choosealicense.com)
+- [Img Shields](https://shields.io)
+<!-- - [GitHub Pages](https://pages.github.com)
+- [Font Awesome](https://fontawesome.com)
+- [React Icons](https://react-icons.github.io/react-icons/search)
+- [Markdown Studio](https://readme.so/editor)
+- []()
+- []() -->
+<!-- - []() -->
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/alexgeis/SubTracker.svg?style=for-the-badge
+[contributors-url]: https://github.com/alexgeis/SubTracker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/alexgeis/SubTracker.svg?style=for-the-badge
+[forks-url]: https://github.com/alexgeis/SubTracker/network/members
+[stars-shield]: https://img.shields.io/github/stars/alexgeis/SubTracker.svg?style=for-the-badge
+[stars-url]: https://github.com/alexgeis/SubTracker/stargazers -->
+
+[issues-shield]: https://img.shields.io/github/issues/alexgeis/SubTracker.svg?style=for-the-badge
+[issues-url]: https://github.com/alexgeis/SubTracker/issues
+[license-shield]: https://img.shields.io/github/license/alexgeis/SubTracker.svg?style=for-the-badge
+[license-url]: https://github.com/alexgeis/SubTracker/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/alexngeis
+[product-screenshot]: images/screenshot.png
