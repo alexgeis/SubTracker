@@ -15,6 +15,7 @@ DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to 
 
 const dev_DB_URL =
 	"mongodb+srv://cacheAlex:PaperTiger91@cachebandit.l5flp.mongodb.net/test?retryWrites=true&w=majority";
+
 mongoose.connect(process.env.MONGODB_URI || dev_DB_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
